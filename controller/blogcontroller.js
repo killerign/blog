@@ -30,6 +30,7 @@ exports.postone = (req,res,next) => {
 }
 
 exports.getone = (req,res,next) => {
+    
     blog.findOne({"uid": req.body.uid}).   
     then(result => {
         next();
