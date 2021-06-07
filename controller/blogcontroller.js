@@ -1,5 +1,5 @@
 const blog = require('../model/blog_model');
-var uuid = require('uuid');
+
 exports.getall= (req,res,next) => {
     blog.find({},'heading summary picture tags topic date uid author',{_id:0}).
     then(result => {
@@ -25,6 +25,7 @@ exports.postone = (req,res,next) => {
     today = yyyy+'/'+mm+'/'+dd;
     var obj = req.body;
     obj["cmpdate"]=today;
+    var uuid = require('uuid');
     obj["uid"]=uuid.v4();
     blog.insertMany(obj).then
 }
